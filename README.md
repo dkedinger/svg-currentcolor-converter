@@ -66,10 +66,12 @@ You can run the converter directly from Finder by right-clicking selected SVG fi
 4. Paste this into the script box (adjust the path to where the script lives):
 
    ```bash
-   /usr/bin/python3 "/path/to/svg_currentColor_Converter.py" "$@"
+   /usr/bin/python3 "/path/to/svg_currentColor_Converter.py" "$@" > /dev/null 2>&1
    ```
 
-   Because input is passed *as arguments*, `"$@"` forwards every selected file/folder to the script.
+   Paste **only the command line itself** — do not include the surrounding ` ```bash ` / ` ``` ` Markdown fence markers. The backticks would be interpreted as shell command substitution and cause a "command not found" error.
+
+   Because input is passed *as arguments*, `"$@"` forwards every selected file/folder to the script. The `> /dev/null 2>&1` discards the script's printed output, which Automator would otherwise try to run as a command.
 
 5. Save (⌘S) with a name like **Convert SVG to currentColor**.
 

@@ -5,8 +5,8 @@ import sys
 def rewrite_svg_file(completePath):
     file = os.path.basename(completePath)
     file_path = os.path.dirname(completePath)
-    # Make sure it's an SVG file
-    if file[-4:] == (".svg"):
+    # Make sure it's an SVG file (case-insensitive, e.g. .svg or .SVG)
+    if file.lower().endswith(".svg"):
             content = open(completePath, 'r')
             
             # Read the content of the file
